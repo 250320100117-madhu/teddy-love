@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Teddy Day 🧸</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        color: #fff;
+        text-align: center;
+    }
+
+    .card {
+        z-index: 2;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 3em;
+        text-shadow: 0 0 20px hotpink;
+    }
+
+    p {
+        font-size: 1.4em;
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        background: deeppink;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 15px pink;
+    }
+
+    button:hover {
+        background: hotpink;
+    }
+
+    .teddy {
+        position: absolute;
+        font-size: 32px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+        0% { top: -10%; opacity: 1; }
+        100% { top: 110%; opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="teddy.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>🧸 Happy Teddy Day 🧸</h1>
+    <p>
+        This teddy is soft and cute 🧸<br>
+        Just like YOU 😍<br><br>
+        Whenever you feel low,<br>
+        hug this teddy & remember me ❤️
+    </p>
+    <button onclick="playMusic()">Hug for You 🤗</button>
+</div>
+
+<script>
+function playMusic() {
+    var song = document.getElementById("music");
+    song.playbackRate = 1.0; // change speed if you want
+    song.play();
+    alert("Sending you a warm teddy hug 🧸❤️");
+}
+
+// Teddy falling animation
+setInterval(() => {
+    const teddy = document.createElement("div");
+    teddy.className = "teddy";
+    teddy.innerHTML = "🧸";
+    teddy.style.left = Math.random() * 100 + "vw";
+    teddy.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(teddy);
+
+    setTimeout(() => {
+        teddy.remove();
+    }, 6000);
+}, 500);
+</script>
+
+</body>
+</html>
